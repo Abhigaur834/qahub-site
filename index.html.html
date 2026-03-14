@@ -1057,6 +1057,13 @@ footer {
   .container { padding: 0 20px; }
   h1 { letter-spacing: -1px; }
 }
+
+.faq-body {
+  transition: opacity 0.2s ease;
+}
+.faq-item:hover {
+  background: rgba(61,126,245,0.02) !important;
+}
 </style>
 </head>
 <body>
@@ -1681,60 +1688,60 @@ footer {
 
     <div style="max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:2px;border-radius:16px;overflow:hidden;border:1px solid var(--border2)">
 
-      <div class="faq-item" style="background:var(--surface);padding:24px 28px;cursor:pointer;transition:background 0.2s">
+      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer" style="background:var(--surface);padding:24px 28px;cursor:pointer;transition:background 0.2s">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
           <div style="font-family:var(--font-head);font-weight:700;font-size:15px">How long does setup take?</div>
-          <div class="faq-arrow" style="font-size:18px;color:var(--accent);flex-shrink:0;transition:transform 0.2s">−</div>
+          <div class="faq-arrow" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(61,126,245,0.25);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent);flex-shrink:0;transition:all 0.2s;font-weight:300;line-height:1">+</div>
         </div>
-        <div class="faq-body" style="display:block;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75">About 30 minutes. You add your agents (bulk Excel upload or one by one), set up your process, and you're auditing. No IT team, no integrations, no training sessions needed.</div>
+        <div class="faq-body" style="display:none;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75;padding-top:2px">About 30 minutes. You add your agents (bulk Excel upload or one by one), set up your process, and you're auditing. No IT team, no integrations, no training sessions needed.</div>
       </div>
 
-      <div class="faq-item" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
+      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
           <div style="font-family:var(--font-head);font-weight:700;font-size:15px">Can I use my own scoring parameters?</div>
-          <div class="faq-arrow" style="font-size:18px;color:var(--accent);flex-shrink:0;transition:transform 0.2s">−</div>
+          <div class="faq-arrow" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(61,126,245,0.25);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent);flex-shrink:0;transition:all 0.2s;font-weight:300;line-height:1">+</div>
         </div>
-        <div class="faq-body" style="display:block;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75">Yes — on the Enterprise plan, scoring parameters are fully customizable per client. On Starter and Growth, the current parameters cover the most common BPO QA frameworks and work for most teams out of the box.</div>
+        <div class="faq-body" style="display:none;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75;padding-top:2px">Yes — on the Enterprise plan, scoring parameters are fully customizable per client. On Starter and Growth, the current parameters cover the most common BPO QA frameworks and work for most teams out of the box.</div>
       </div>
 
-      <div class="faq-item" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
+      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
           <div style="font-family:var(--font-head);font-weight:700;font-size:15px">Where is my data stored? Is it secure?</div>
-          <div class="faq-arrow" style="font-size:18px;color:var(--accent);flex-shrink:0;transition:transform 0.2s">−</div>
+          <div class="faq-arrow" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(61,126,245,0.25);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent);flex-shrink:0;transition:all 0.2s;font-weight:300;line-height:1">+</div>
         </div>
-        <div class="faq-body" style="display:block;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75">All data is stored on Google Firebase (Asia Southeast region), with role-based authentication. Only users you explicitly assign can access your process data. Your data is completely isolated from other clients.</div>
+        <div class="faq-body" style="display:none;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75;padding-top:2px">All data is stored on Google Firebase (Asia Southeast region), with role-based authentication. Only users you explicitly assign can access your process data. Your data is completely isolated from other clients.</div>
       </div>
 
-      <div class="faq-item" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
+      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
           <div style="font-family:var(--font-head);font-weight:700;font-size:15px">What's included in the 60-day free trial?</div>
-          <div class="faq-arrow" style="font-size:18px;color:var(--accent);flex-shrink:0;transition:transform 0.2s">−</div>
+          <div class="faq-arrow" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(61,126,245,0.25);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent);flex-shrink:0;transition:all 0.2s;font-weight:300;line-height:1">+</div>
         </div>
-        <div class="faq-body" style="display:block;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75">Full access to everything — all analytics, all features, unlimited audits. No credit card needed. We give you 60 days because we know QA results take time to show up in the data. You'll see the difference before you pay anything.</div>
+        <div class="faq-body" style="display:none;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75;padding-top:2px">Full access to everything — all analytics, all features, unlimited audits. No credit card needed. We give you 60 days because we know QA results take time to show up in the data. You'll see the difference before you pay anything.</div>
       </div>
 
-      <div class="faq-item" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
+      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
           <div style="font-family:var(--font-head);font-weight:700;font-size:15px">How many agents and auditors can I add?</div>
-          <div class="faq-arrow" style="font-size:18px;color:var(--accent);flex-shrink:0;transition:transform 0.2s">−</div>
+          <div class="faq-arrow" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(61,126,245,0.25);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent);flex-shrink:0;transition:all 0.2s;font-weight:300;line-height:1">+</div>
         </div>
-        <div class="faq-body" style="display:block;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75">Starter supports up to 50 agents and 5 QA auditors. Growth supports unlimited agents and 15 auditors. Enterprise has no limits on either.</div>
+        <div class="faq-body" style="display:none;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75;padding-top:2px">Starter supports up to 50 agents and 5 QA auditors. Growth supports unlimited agents and 15 auditors. Enterprise has no limits on either.</div>
       </div>
 
-      <div class="faq-item" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
+      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
           <div style="font-family:var(--font-head);font-weight:700;font-size:15px">Do my TLs and agents get their own login?</div>
-          <div class="faq-arrow" style="font-size:18px;color:var(--accent);flex-shrink:0;transition:transform 0.2s">−</div>
+          <div class="faq-arrow" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(61,126,245,0.25);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent);flex-shrink:0;transition:all 0.2s;font-weight:300;line-height:1">+</div>
         </div>
-        <div class="faq-body" style="display:block;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75">Yes. Role-based access means admins, QA auditors, and team leaders each see a different version of the platform appropriate to their role. TLs see their team's data. Agents can view their own scores. Admins see everything.</div>
+        <div class="faq-body" style="display:none;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75;padding-top:2px">Yes. Role-based access means admins, QA auditors, and team leaders each see a different version of the platform appropriate to their role. TLs see their team's data. Agents can view their own scores. Admins see everything.</div>
       </div>
 
-      <div class="faq-item" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
+      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
           <div style="font-family:var(--font-head);font-weight:700;font-size:15px">Can I export data to share with my client?</div>
-          <div class="faq-arrow" style="font-size:18px;color:var(--accent);flex-shrink:0;transition:transform 0.2s">−</div>
+          <div class="faq-arrow" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(61,126,245,0.25);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent);flex-shrink:0;transition:all 0.2s;font-weight:300;line-height:1">+</div>
         </div>
-        <div class="faq-body" style="display:block;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75">Yes — one-click Excel export for audit logs, performance data, and pareto analysis. The format is clean and professional — ready to send to a client or present in a review meeting.</div>
+        <div class="faq-body" style="display:none;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75;padding-top:2px">Yes — one-click Excel export for audit logs, performance data, and pareto analysis. The format is clean and professional — ready to send to a client or present in a review meeting.</div>
       </div>
 
     </div>
@@ -1751,7 +1758,7 @@ footer {
       <p class="section-sub">Join QA teams using QA.Hub to turn every audit into a coaching opportunity and every coaching session into measurable improvement.</p>
       <div class="cta-actions">
         <a href="/cdn-cgi/l/email-protection#9cfbfde9eefdfef4f5a4afa8dcfbf1fdf5f0b2fff3f1a3efe9fef6f9ffe8a1cdddb2d4e9febcc8eef5fdf0bccef9ede9f9efe8" class="btn-primary" style="font-size:15px;padding:16px 36px">Start 60-Day Free Trial →</a>
-        <a href="/cdn-cgi/l/email-protection#ff989e8a8d9e9d9796c7cccbbf98929e9693d19c9092c08c8a9d959a9c8bc2aebed1b78a9ddfbb9a9290dfad9a8e8a9a8c8b" class="btn-ghost" style="font-size:15px;padding:16px 28px">Request a Demo</a>
+        
       </div>
       <p class="cta-note">No credit card required · Setup in 30 minutes · Full access for 60 days</p>
     </div>
@@ -1842,11 +1849,11 @@ footer {
               <label style="display:block;font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--text2);font-family:var(--font-head);font-weight:700;margin-bottom:8px">Message</label>
               <textarea id="demoMessage" rows="3" placeholder="Tell us about your QA process, current challenges, or anything you'd like us to know..." style="width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:8px;color:var(--text);font-family:var(--font-body);font-size:13px;padding:10px 14px;outline:none;resize:vertical;transition:border-color 0.2s;box-sizing:border-box;line-height:1.6" onfocus="this.style.borderColor='rgba(61,126,245,0.5)'" onblur="this.style.borderColor='var(--border2)'"></textarea>
             </div>
-            <button type="submit" style="width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:14px;font-family:var(--font-head);font-size:14px;font-weight:700;cursor:pointer;letter-spacing:0.3px;box-shadow:0 0 24px rgba(61,126,245,0.3);transition:all 0.2s" onmouseover="this.style.background='#5590f7'" onmouseout="this.style.background='var(--accent)'">
+            <button type="submit" id="demoSubmitBtn" style="width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:14px;font-family:var(--font-head);font-size:14px;font-weight:700;cursor:pointer;letter-spacing:0.3px;box-shadow:0 0 24px rgba(61,126,245,0.3);transition:all 0.2s" onmouseover="this.style.background='#5590f7'" onmouseout="this.style.background='var(--accent)'">
               Send Request → 
             </button>
             <div id="demoSuccess" style="display:none;text-align:center;padding:16px;background:rgba(34,211,138,0.08);border:1px solid rgba(34,211,138,0.2);border-radius:10px;color:var(--success);font-family:var(--font-head);font-weight:700;font-size:14px">
-              ✅ Request sent! We'll WhatsApp you within 2–3 hours.
+              ✅ Saved! WhatsApp opening now — we'll confirm within 2–3 hours.
             </div>
           </form>
         </div>
@@ -1892,15 +1899,25 @@ function toggleFaq(el) {
   const body = el.querySelector('.faq-body');
   const arrow = el.querySelector('.faq-arrow');
   const isOpen = body.style.display === 'block';
-  // Close all
-  document.querySelectorAll('.faq-body').forEach(b => b.style.display = 'none');
-  document.querySelectorAll('.faq-arrow').forEach(a => { a.textContent = '+'; a.style.transform = 'none'; });
-  document.querySelectorAll('.faq-item').forEach(i => i.style.background = 'var(--surface)');
+  // Close all first
+  document.querySelectorAll('.faq-body').forEach(b => {
+    b.style.display = 'none';
+    b.style.opacity = '0';
+  });
+  document.querySelectorAll('.faq-arrow').forEach(a => {
+    a.textContent = '+';
+    a.style.background = 'transparent';
+    a.style.color = 'var(--accent)';
+  });
+  document.querySelectorAll('.faq-item').forEach(i => i.style.background = '');
+  // Open clicked if it was closed
   if (!isOpen) {
     body.style.display = 'block';
-    arrow.textContent = '×';
-    arrow.style.transform = 'rotate(45deg)';
-    el.style.background = 'var(--surface2)';
+    setTimeout(() => { body.style.opacity = '1'; }, 10);
+    arrow.textContent = '−';
+    arrow.style.background = 'rgba(61,126,245,0.15)';
+    arrow.style.color = 'var(--accent)';
+    el.style.background = 'rgba(61,126,245,0.04)';
   }
 }
 
@@ -1910,34 +1927,47 @@ function openDemo() {
   setTimeout(()=>{ document.getElementById('demoName').focus(); }, 600);
 }
 
-function submitDemo(e) {
+async function submitDemo(e) {
   e.preventDefault();
-  const name = document.getElementById('demoName').value;
-  const company = document.getElementById('demoCompany').value;
-  const phone = document.getElementById('demoPhone').value;
-  const email = document.getElementById('demoEmail').value;
-  const size = document.getElementById('demoSize').value;
-  const message = document.getElementById('demoMessage').value;
-  
-  // Send via WhatsApp with all form details
-  const msg = encodeURIComponent(
+  const name    = document.getElementById('demoName').value.trim();
+  const company = document.getElementById('demoCompany').value.trim();
+  const phone   = document.getElementById('demoPhone').value.trim();
+  const email   = document.getElementById('demoEmail').value.trim();
+  const size    = document.getElementById('demoSize').value;
+  const message = document.getElementById('demoMessage').value.trim();
+
+  const submitBtn = document.getElementById('demoSubmitBtn');
+  submitBtn.textContent = 'Sending...';
+  submitBtn.disabled = true;
+
+  // 1 — Save to Google Sheets via Formspree
+  try {
+    await fetch('https://formspree.io/f/xvzwqelr', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, company, phone, email, teamSize: size, message })
+    });
+  } catch(err) {
+    console.warn('Formspree error:', err);
+  }
+
+  // 2 — Show success
+  document.getElementById('demoSuccess').style.display = 'block';
+  submitBtn.style.display = 'none';
+
+  // 3 — Open WhatsApp with full details pre-filled
+  const waMsg = encodeURIComponent(
     'Hi Abhishek, I want to request a demo of QA.Hub.\n\n' +
     'Name: ' + name + '\n' +
     'Company: ' + company + '\n' +
     'Phone: ' + phone + '\n' +
     'Email: ' + email + '\n' +
-    'Team Size: ' + (size||'Not specified') + '\n' +
+    'Team Size: ' + (size || 'Not specified') + '\n' +
     (message ? 'Message: ' + message : '')
   );
-  
-  // Show success message
-  document.getElementById('demoSuccess').style.display = 'block';
-  document.getElementById('demoForm').querySelector('button[type=submit]').style.display = 'none';
-  
-  // Open WhatsApp after short delay
-  setTimeout(()=>{
-    window.open('https://wa.me/919711272421?text=' + msg, '_blank');
-  }, 800);
+  setTimeout(() => {
+    window.open('https://wa.me/919711272421?text=' + waMsg, '_blank');
+  }, 700);
 }
 
 </script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
