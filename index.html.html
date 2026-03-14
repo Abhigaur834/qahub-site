@@ -143,16 +143,6 @@ section { position: relative; z-index: 1; }
   padding: 120px 0 80px;
   overflow: hidden;
 }
-#hero .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  width: 100%;
-}
-@media (max-width: 900px) {
-  #hero .container { grid-template-columns: 1fr; }
-}
 
 .hero-eyebrow {
   display: inline-flex;
@@ -284,7 +274,11 @@ h1 em {
 
 /* HERO DASHBOARD VISUAL */
 .hero-visual {
-  width: 100%;
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 520px;
   animation: fadeUp 0.8s 0.3s ease both;
 }
 
@@ -991,8 +985,7 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  #hero .container { grid-template-columns: 1fr; gap: 40px; }
-  .hero-visual { display: block; }
+  .hero-visual { display: none; }
   .pain-grid { grid-template-columns: 1fr; }
   .features-grid { grid-template-columns: 1fr; }
   .feature-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
@@ -1022,14 +1015,14 @@ footer {
     <li><a href="#how">How It Works</a></li>
     <li><a href="#results">Results</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="https://abhigaur834.github.io/qa-dashboard/" target="_blank" class="nav-cta">Start Free Trial →</a></li>
+    <li><a href="#cta" class="nav-cta">Start Free Trial →</a></li>
   </ul>
 </nav>
 
 <!-- ── HERO ── -->
 <section id="hero">
-  <div class="container">
-    <div>
+  <div class="container" style="position:relative">
+    <div style="max-width:600px">
       <div class="hero-eyebrow">
         <div class="eyebrow-dot"></div>
         <span>QA Intelligence Platform</span>
@@ -1037,7 +1030,7 @@ footer {
       <h1>Turn Every Call Into <em>Measurable Performance</em></h1>
       <p class="hero-sub">QA.Hub gives BPOs and sales teams a real-time intelligence layer — audit calls, score agents, track coaching impact, and stop quality slipping through the cracks.</p>
       <div class="hero-actions">
-        <a href="https://abhigaur834.github.io/qa-dashboard/" target="_blank" class="btn-primary">Start 60-Day Free Trial →</a>
+        <a href="#cta" class="btn-primary">Start 60-Day Free Trial →</a>
         <a href="#features" class="btn-ghost">See How It Works</a>
       </div>
       <div class="hero-stats">
@@ -1343,7 +1336,7 @@ footer {
           <li class="inactive">Coaching ROI tracking</li>
           <li class="inactive">Multi-process support</li>
         </ul>
-        <a href="https://abhigaur834.github.io/qa-dashboard/" target="_blank" class="btn-plan btn-plan-outline" style="display:block;text-decoration:none;text-align:center">Start Free Trial</a>
+        <button class="btn-plan btn-plan-outline">Start Free Trial</button>
       </div>
 
       <div class="pricing-card popular">
@@ -1366,7 +1359,7 @@ footer {
           <li>Dip detection alerts</li>
           <li class="inactive">Custom branding</li>
         </ul>
-        <a href="https://abhigaur834.github.io/qa-dashboard/" target="_blank" class="btn-plan btn-plan-fill" style="display:block;text-decoration:none;text-align:center">Start Free Trial →</a>
+        <button class="btn-plan btn-plan-fill">Start Free Trial →</button>
       </div>
 
       <div class="pricing-card">
@@ -1386,7 +1379,7 @@ footer {
           <li>SLA support</li>
           <li>API access</li>
         </ul>
-        <a href="mailto:gaurabhi834@gmail.com?subject=QA.Hub Enterprise Enquiry" class="btn-plan btn-plan-outline" style="display:block;text-decoration:none;text-align:center">Talk to Us</a>
+        <button class="btn-plan btn-plan-outline">Talk to Us</button>
       </div>
 
     </div>
@@ -1402,8 +1395,8 @@ footer {
       <h2>Stop guessing.<br>Start measuring.</h2>
       <p class="section-sub">Join QA teams using QA.Hub to turn every audit into a coaching opportunity and every coaching session into measurable improvement.</p>
       <div class="cta-actions">
-        <a href="/cdn-cgi/l/email-protection#9cfbfde9eefdfef4f5a4afa8dcfbf1fdf5f0b2fff3f1a3efe9fef6f9ffe8a1cdddb2d4e9febcc8eef5fdf0bccef9ede9f9efe8" class="btn-primary" style="font-size:15px;padding:16px 36px">Start 60-Day Free Trial →</a>
-        <a href="/cdn-cgi/l/email-protection#ff989e8a8d9e9d9796c7cccbbf98929e9693d19c9092c08c8a9d959a9c8bc2aebed1b78a9ddfbb9a9290dfad9a8e8a9a8c8b" class="btn-ghost" style="font-size:15px;padding:16px 28px">Request a Demo</a>
+        <a href="mailto:gaurabhi834@gmail.com?subject=QA.Hub Trial Request" class="btn-primary" style="font-size:15px;padding:16px 36px">Start 60-Day Free Trial →</a>
+        <a href="mailto:gaurabhi834@gmail.com?subject=QA.Hub Demo Request" class="btn-ghost" style="font-size:15px;padding:16px 28px">Request a Demo</a>
       </div>
       <p class="cta-note">No credit card required · Setup in 30 minutes · Full access for 60 days</p>
     </div>
@@ -1422,14 +1415,14 @@ footer {
         <li><a href="#features">Features</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#results">Results</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#5b3c3a2e293a39333263686f1b3c363a323775383436">Contact</a></li>
+        <li><a href="mailto:gaurabhi834@gmail.com">Contact</a></li>
       </ul>
       <div class="footer-copy">© 2026 QA.Hub · Built by OcubeServices</div>
     </div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -1461,3 +1454,18 @@ function animateNum(el, target, suffix='', dur=1500) {
   const run = (now) => {
     const p = Math.min((now - start) / dur, 1);
     const e = 1 - Math.pow(1 - p, 3);
+    if(typeof target === 'number') {
+      el.textContent = Math.round(e * target) + suffix;
+    }
+    if(p < 1) requestAnimationFrame(run);
+  };
+  requestAnimationFrame(run);
+}
+
+setTimeout(() => {
+  animateNum(document.querySelector('.hero-stat-num'), 94, '%');
+}, 600);
+</script>
+
+</body>
+</html>
