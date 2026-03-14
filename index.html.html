@@ -260,11 +260,11 @@ h1 em {
 
 .hero-stats {
   display: flex;
-  gap: 40px;
-  margin-top: 56px;
-  padding-top: 40px;
+  gap: 32px;
+  margin-top: 40px;
+  padding-top: 32px;
   border-top: 1px solid var(--border2);
-  animation: fadeUp 0.6s 0.4s ease both;
+  flex-wrap: wrap;
 }
 .hero-stat-num {
   font-family: var(--font-head);
@@ -283,6 +283,16 @@ h1 em {
 }
 
 /* HERO DASHBOARD VISUAL */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+.hero-content {
+  max-width: 100%;
+}
 .hero-visual {
   width: 100%;
   animation: fadeUp 0.8s 0.3s ease both;
@@ -1017,14 +1027,16 @@ footer {
     <li><a href="#how">How It Works</a></li>
     <li><a href="#results">Results</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="https://wa.me/919711272421?text=Hi%20Abhishek%2C%20I%27m%20interested%20in%20a%20free%20trial%20of%20QA.Hub%20for%20my%20team." target="_blank" class="nav-cta">Start Free Trial →</a></li>
+    <li><a href="https://wa.me/919711272421?text=Hi%20Abhishek%2C%20I%27m%20interested%20in%20a%20free%20trial%20of%20QA.Hub%20for%20my%20team." target="_blank" class="nav-cta">Start Free Trial →</a>
+        <a href="https://app.qahub.online" target="_blank" style="padding:8px 16px;background:rgba(34,211,138,0.1);border:1px solid rgba(34,211,138,0.3);border-radius:8px;color:var(--success);font-family:var(--font-head);font-size:12px;font-weight:700;text-decoration:none;transition:all 0.2s" onmouseover="this.style.background='rgba(34,211,138,0.2)'" onmouseout="this.style.background='rgba(34,211,138,0.1)'">Open App →</a></li>
   </ul>
 </nav>
 
 <!-- ── HERO ── -->
 <section id="hero">
   <div class="container">
-    <div>
+    <div class="hero-inner">
+      <div class="hero-content">
       <div class="hero-eyebrow">
         <div class="eyebrow-dot"></div>
         <span>QA Intelligence Platform</span>
@@ -1033,7 +1045,7 @@ footer {
       <p class="hero-sub">QA.Hub gives BPOs and sales teams a real-time intelligence layer — audit calls, score agents, track coaching impact, and stop quality slipping through the cracks.</p>
       <div class="hero-actions">
         <a href="https://wa.me/919711272421?text=Hi%20Abhishek%2C%20I%27m%20interested%20in%20a%20free%20trial%20of%20QA.Hub%20for%20my%20team." target="_blank" class="btn-primary">Start 60-Day Free Trial →</a>
-        <a href="#features" class="btn-ghost">See How It Works</a>
+        <a href="https://app.qahub.online" target="_blank" class="btn-ghost" style="border-color:rgba(34,211,138,0.3);color:var(--success)">Open App →</a>
       </div>
       <div class="hero-stats">
         <div>
@@ -1053,7 +1065,7 @@ footer {
           <div class="hero-stat-label">To First Results</div>
         </div>
       </div>
-    </div><!-- /hero-content -->
+      </div><!-- /hero-content -->
 
     <!-- Dashboard mockup -->
     <div class="hero-visual">
