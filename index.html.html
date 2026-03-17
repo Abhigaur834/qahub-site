@@ -26,6 +26,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -41,7 +42,7 @@ body {
 
 @keyframes pageFade{ from{opacity:0;} to{opacity:1;} }
 
-/* BACKGROUND EFFECTS */
+/* ── NOISE OVERLAY ── */
 body::before {
   content: '';
   position: fixed;
@@ -52,21 +53,32 @@ body::before {
   opacity: 0.4;
 }
 
+/* ── GRID BACKGROUND ── */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: linear-gradient(rgba(61,126,245,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(61,126,245,0.04) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(61,126,245,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61,126,245,0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
   z-index: 0;
 }
 
-.orb { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+/* ── GLOW ORBS ── */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
 .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(61,126,245,0.12), transparent 70%); top: -100px; left: -100px; }
 .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(139,108,245,0.1), transparent 70%); bottom: 20%; right: -80px; }
+.orb-3 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(240,168,48,0.06), transparent 70%); top: 50%; left: 40%; }
 
-/* NAV */
+/* ── NAV ── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -81,10 +93,29 @@ nav {
   border-bottom: 1px solid var(--border2);
 }
 
-.nav-logo { font-family: var(--font-head); font-size: 20px; font-weight: 800; color: var(--text); }
+.nav-logo {
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text);
+}
 .nav-logo span { color: var(--accent); }
-.nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
-.nav-links a { color: var(--text2); text-decoration: none; font-size: 13.5px; font-weight: 500; transition: color 0.2s; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: color 0.2s;
+}
 .nav-links a:hover { color: var(--text); }
 
 .nav-cta {
@@ -93,51 +124,251 @@ nav {
   padding: 8px 20px;
   border-radius: 8px;
   font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: background 0.2s, box-shadow 0.2s !important;
   box-shadow: 0 0 20px rgba(61,126,245,0.3);
 }
+.nav-cta:hover { background: #5590f7 !important; box-shadow: 0 0 30px rgba(61,126,245,0.5) !important; }
 
-/* CUSTOM CURSOR GLOW */
-#cursorGlow {
-  position: fixed;
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle, rgba(61,126,245,0.25), transparent 70%);
-  pointer-events: none;
-  border-radius: 50%;
-  mix-blend-mode: screen;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  opacity: 0.6;
+/* ── SECTIONS ── */
+section { position: relative; z-index: 1; }
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
-/* TYPOGRAPHY & BUTTONS */
-h1 { font-family: var(--font-head); font-size: clamp(36px, 5vw, 64px); font-weight: 800; line-height: 1.08; letter-spacing: -2px; margin-bottom: 20px; }
-h1 em { font-style: normal; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 140px 0 80px;
+  overflow: hidden;
+}
+#hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(61,126,245,0.08);
+  border: 1px solid rgba(61,126,245,0.2);
+  border-radius: 40px;
+  padding: 6px 16px 6px 8px;
+  margin-bottom: 28px;
+}
+.eyebrow-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.hero-eyebrow span {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+h1 {
+  font-family: var(--font-head);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+  font-size: 18px;
+  color: var(--text2);
+  max-width: 560px;
+  margin-bottom: 40px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
 .btn-primary {
   background: var(--accent);
   color: #fff;
+  border: none;
   padding: 14px 32px;
   border-radius: 10px;
   font-family: var(--font-head);
+  font-size: 14px;
   font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  box-shadow: 0 0 30px rgba(61,126,245,0.35);
+  transition: all 0.18s cubic-bezier(.4,0,.2,1);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
 }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(61,126,245,0.5); }
+.btn-primary:hover{
+background:#5590f7;
+box-shadow:0 0 40px rgba(61,126,245,0.6);
+transform:translateY(-3px);
+}
 
-/* FAQ Styles */
-.faq-item { background: var(--surface); padding: 24px 28px; border-bottom: 1px solid var(--border2); transition: background 0.2s; }
-.faq-body { display: none; opacity: 0; transition: opacity 0.3s ease; padding-top: 15px; color: var(--text2); }
+.btn-ghost {
+  background: transparent;
+  color: var(--text2);
+  border: 1px solid var(--border2);
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-ghost:hover { border-color: rgba(61,126,245,0.4); color: var(--text); background: rgba(61,126,245,0.05); }
 
-.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border2);
+  flex-wrap: wrap;
+}
+.hero-stat-num {
+  font-family: var(--font-head);
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+.hero-stat-label {
+  font-size: 12px;
+  color: var(--text2);
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* DASHBOARD VISUAL */
+.dashboard-mock {
+  background: rgba(12,18,32,0.9);
+  border: 1px solid rgba(61,126,245,0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+  animation: floatMock 5s ease-in-out infinite;
+}
+@keyframes floatMock {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.mock-bar { height: 40px; background: rgba(8,13,24,0.8); border-bottom: 1px solid var(--border2); display: flex; align-items: center; padding: 0 16px; gap: 6px; }
+.mock-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+.mock-metrics { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 15px; }
+.mock-metric { background: var(--surface); border: 1px solid var(--border2); border-radius: 8px; padding: 12px; }
+.mock-metric-label { font-size: 9px; text-transform: uppercase; color: var(--text3); font-family: var(--font-head); font-weight: 700; margin-top: 5px; }
+
+.mock-chart { background: var(--surface); border: 1px solid var(--border2); border-radius: 10px; padding: 14px; margin-bottom: 10px; }
+.mock-chart-title { font-size: 10px; text-transform: uppercase; color: var(--text3); font-family: var(--font-head); font-weight: 700; margin-bottom: 12px; }
+
+/* ── LOGOS ── */
+#logos { padding: 32px 0; border-top: 1px solid var(--border2); border-bottom: 1px solid var(--border2); background: rgba(8,13,24,0.5); }
+.logos-label { text-align: center; font-size: 11px; text-transform: uppercase; color: var(--text3); font-family: var(--font-head); margin-bottom: 20px; }
+.logos-row { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+.logo-item { font-family: var(--font-head); font-size: 14px; font-weight: 800; color: var(--text3); opacity: 0.5; }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+
+/* ── PROBLEM ── */
+#problem { padding: 100px 0; }
+.section-eyebrow { font-family: var(--font-head); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.section-eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--accent); }
+.section-sub { font-size: 17px; color: var(--text2); max-width: 580px; font-weight: 300; }
+
+.pain-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-top: 60px; border: 1px solid var(--border2); border-radius: 16px; overflow: hidden; }
+.pain-card { background: var(--surface); padding: 32px 28px; }
+.pain-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+.pain-title { font-family: var(--font-head); font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+.pain-text { font-size: 13.5px; color: var(--text2); }
+
+/* ── FEATURES ── */
+#features { padding: 100px 0; }
+.features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 60px; }
+.feature-card { background: var(--surface); border: 1px solid var(--border2); border-radius: 16px; padding: 32px; transition: 0.3s; }
+.feature-card:hover { transform: translateY(-4px); border-color: rgba(61,126,245,0.4); }
+.feature-card.featured { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; background: linear-gradient(145deg, rgba(61,126,245,0.07), var(--surface)); }
+.feature-tag { display: inline-block; background: rgba(61,126,245,0.1); border: 1px solid rgba(61,126,245,0.2); border-radius: 20px; padding: 3px 12px; font-size: 10px; font-family: var(--font-head); font-weight: 700; color: var(--accent); margin-bottom: 16px; }
+
+/* ── HOW IT WORKS ── */
+#how { padding: 100px 0; background: rgba(8,13,24,0.5); }
+.steps { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; margin-top: 60px; }
+.step { text-align: center; }
+.step-num { width: 56px; height: 56px; border-radius: 50%; background: var(--surface); border: 1px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 800; color: var(--accent); margin: 0 auto 20px; }
+
+/* ── RESULTS ── */
+#results { padding: 100px 0; }
+.results-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 60px; }
+.result-card { background: var(--surface); border-radius: 16px; padding: 32px 28px; border-bottom: 3px solid var(--accent); }
+.result-num { font-family: var(--font-head); font-size: 52px; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+
+/* ── PRICING ── */
+#pricing { padding: 100px 0; background: rgba(8,13,24,0.5); }
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 60px; }
+.pricing-card { background: var(--surface); border: 1px solid var(--border2); border-radius: 20px; padding: 36px 32px; }
+.pricing-card.popular { border-color: var(--accent); box-shadow: 0 0 40px rgba(61,126,245,0.1); transform: scale(1.05); }
+
+/* ── FAQ ── */
+#faq { padding: 100px 0; }
+.faq-container { max-width: 780px; margin: 60px auto 0; border: 1px solid var(--border2); border-radius: 16px; overflow: hidden; }
+.faq-item { background: var(--surface); padding: 24px 28px; cursor: pointer; border-bottom: 1px solid var(--border2); transition: 0.2s; }
+.faq-item:hover { background: rgba(61,126,245,0.02); }
+.faq-body { display: none; padding-top: 15px; color: var(--text2); font-size: 14px; }
+
+/* ── FORM ── */
+input, select, textarea { width: 100%; background: var(--bg2); border: 1px solid var(--border2); border-radius: 8px; color: var(--text); padding: 12px; margin-top: 8px; outline: none; font-family: var(--font-body); }
+input:focus { border-color: var(--accent); }
+
+#cursorGlow { position: fixed; width: 220px; height: 220px; background: radial-gradient(circle,rgba(61,126,245,0.2),transparent 70%); pointer-events: none; transform: translate(-50%,-50%); z-index: 0; opacity: 0.6; }
 
 @media (max-width: 900px) {
+  #hero .container { grid-template-columns: 1fr; }
+  .steps, .pricing-grid, .results-grid, .pain-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
-  nav { padding: 0 20px; }
 }
 </style>
 </head>
@@ -146,107 +377,267 @@ h1 em { font-style: normal; background: linear-gradient(135deg, var(--accent), v
 <div id="cursorGlow"></div>
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
 
 <nav>
   <div class="nav-logo">QA<span>.</span>Hub</div>
   <ul class="nav-links">
     <li><a href="#features">Features</a></li>
     <li><a href="#how">How It Works</a></li>
+    <li><a href="#results">Results</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="https://wa.me/919711272421" target="_blank" class="nav-cta">Free Trial →</a></li>
+    <li><a href="#contact" class="nav-cta">Start Free Trial →</a></li>
   </ul>
 </nav>
 
-<section id="hero" style="padding: 150px 0 100px;">
-  <div style="max-width:1140px; margin: 0 auto; padding: 0 40px;">
-    <div class="reveal">
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <div class="eyebrow-dot"></div>
+          <span>QA Intelligence Platform</span>
+        </div>
         <h1>Stop Guessing.<br>Start <em>Scoring Every Call.</em></h1>
-        <p style="font-size: 18px; color: var(--text2); margin-bottom: 40px; max-width: 600px;">
-            QA.Hub tells you about quality problems before the client complains—with real data and coaching ROI.
-        </p>
-        <div style="display: flex; gap: 15px;">
-            <a href="#pricing" class="btn-primary">View Pricing →</a>
-            <a href="#contact" class="btn-primary" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border2);">Request Demo</a>
+        <p class="hero-sub">Most BPOs find out about quality problems from client complaints. QA.Hub tells you before that happens.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Start 60-Day Trial →</a>
+          <a href="https://app.qahub.online" target="_blank" class="btn-ghost">Launch App →</a>
         </div>
+        <div class="hero-stats">
+          <div><div class="hero-stat-num" style="color:var(--success)">94%</div><div class="hero-stat-label">Pass Rate</div></div>
+          <div><div class="hero-stat-num" style="color:var(--accent)">1,284+</div><div class="hero-stat-label">Audits</div></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="dashboard-mock">
+          <div class="mock-bar">
+            <div class="mock-dot" style="background:#f04060"></div>
+            <div class="mock-dot" style="background:#f0a830"></div>
+            <div class="mock-dot" style="background:#22d38a"></div>
+            <span style="font-size:11px; margin-left:10px;">QA Dashboard</span>
+          </div>
+          <div style="padding:20px">
+            <div class="mock-metrics">
+              <div class="mock-metric"><div style="font-size:20px; font-weight:800; color:var(--success)">94%</div><div class="mock-metric-label">Pass Rate</div></div>
+              <div class="mock-metric"><div style="font-size:20px; font-weight:800; color:var(--accent)">88.4%</div><div class="mock-metric-label">Avg Score</div></div>
+              <div class="mock-metric"><div style="font-size:20px; font-weight:800; color:var(--accent2)">1,284</div><div class="mock-metric-label">Audits</div></div>
+            </div>
+            <div class="mock-chart">
+                <div class="mock-chart-title">Weekly Trend</div>
+                <div style="height:60px; background:rgba(61,126,245,0.1); border-radius:4px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ SECTION -->
-<section id="faq" style="padding: 100px 0;">
-  <div style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
-    <h2 style="margin-bottom: 40px; text-align: center; font-family: var(--font-head);">Frequently Asked Questions</h2>
-    <div style="border-radius: 16px; overflow: hidden; border: 1px solid var(--border2);">
-      
-      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer;">
-        <div style="display:flex; align-items:center; justify-content:space-between;">
-          <div style="font-family:var(--font-head); font-weight:700;">How long does setup take?</div>
-          <div class="faq-arrow">+</div>
-        </div>
-        <div class="faq-body">About 30 minutes. Bulk upload agents, set your parameters, and start auditing immediately.</div>
-      </div>
-
-      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer;">
-        <div style="display:flex; align-items:center; justify-content:space-between;">
-          <div style="font-family:var(--font-head); font-weight:700;">Is my data secure?</div>
-          <div class="faq-arrow">+</div>
-        </div>
-        <div class="faq-body">Yes. Data is stored on Google Firebase with role-based encryption and strict access controls.</div>
-      </div>
-
+<section id="logos">
+  <div class="container">
+    <div class="logos-label">Trusted by QA teams at</div>
+    <div class="logos-row">
+      <div class="logo-item">OcubeServices</div>
+      <div class="logo-item">SalesPro BPO</div>
+      <div class="logo-item">ConnectFirst</div>
     </div>
   </div>
 </section>
+
+<section id="problem">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">The Problem</div>
+      <h2>Most BPOs are flying<br>blind on quality</h2>
+      <p class="section-sub">Without structured QA, you're guessing why scores are dropping.</p>
+    </div>
+    <div class="pain-grid reveal">
+      <div class="pain-card"><span class="pain-icon">📋</span><div class="pain-title">Spreadsheet Chaos</div><p class="pain-text">Manual scoring leads to lost data and broken formulas.</p></div>
+      <div class="pain-card"><span class="pain-icon">🔇</span><div class="pain-title">Gut-feel Coaching</div><p class="pain-text">TLs coach based on memory, not parameter-level data.</p></div>
+      <div class="pain-card"><span class="pain-icon">⏳</span><div class="pain-title">Late Reporting</div><p class="pain-text">Problems surface weeks after they impact the client.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">The Solution</div>
+      <h2>Every feature built for<br>call center QA</h2>
+    </div>
+    <div class="features-grid reveal">
+      <div class="feature-card featured">
+        <div>
+          <div class="feature-tag">Core</div>
+          <h3 class="feature-title">FATAL Detection System</h3>
+          <p class="feature-text">Any critical parameter marked "No" immediately triggers an automatic fail alert.</p>
+        </div>
+        <div style="background:var(--bg2); padding:20px; border-radius:12px; text-align:center;">
+            <div style="font-size:22px; font-weight:800; color:var(--danger)">⚡ FATAL FAIL</div>
+            <p style="font-size:11px; margin-top:5px; color:var(--text2)">Compliance Violation Detected</p>
+        </div>
+      </div>
+      <div class="feature-card"><h3 class="feature-title">Pareto Heatmaps</h3><p class="feature-text">Identify exactly which 20% of errors cause 80% of your score drops.</p></div>
+      <div class="feature-card"><h3 class="feature-title">Coaching ROI</h3><p class="feature-text">Automatically track 30-day score changes after a coaching session.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+    <div class="container">
+      <div class="reveal" style="text-align:center">
+        <h2>Up and running in 30 minutes</h2>
+      </div>
+      <div class="steps reveal">
+        <div class="step"><div class="step-num">1</div><div class="step-title">Add Agents</div><p>Bulk upload your directory.</p></div>
+        <div class="step"><div class="step-num">2</div><div class="step-title">Set Parameters</div><p>Define weights and fatal triggers.</p></div>
+        <div class="step"><div class="step-num">3</div><div class="step-title">Start Auditing</div><p>Live scoring via scorecard.</p></div>
+        <div class="step"><div class="step-num">4</div><div class="step-title">Track ROI</div><p>Measure coaching impact.</p></div>
+      </div>
+    </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <h2>Simple pricing</h2>
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="pricing-card"><h3>Starter</h3><div class="hero-stat-num">₹4,999</div><p>Up to 5 auditors</p></div>
+      <div class="pricing-card popular"><h3>Growth</h3><div class="hero-stat-num" style="color:var(--accent)">₹12,999</div><p>Unlimited Agents</p></div>
+      <div class="pricing-card"><h3>Enterprise</h3><div class="hero-stat-num">Custom</div><p>API Access</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <h2>Common Questions</h2>
+    <div class="faq-container reveal">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div style="display:flex; justify-content:space-between; font-weight:800;"><span>How long does setup take?</span><span>+</span></div>
+        <div class="faq-body">Setup takes about 30 minutes. You can bulk upload agents and start auditing immediately.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div style="display:flex; justify-content:space-between; font-weight:800;"><span>Is data secure?</span><span>+</span></div>
+        <div class="faq-body">Yes. All data is stored on Google Firebase with isolated role-based access control.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;">
+      <div>
+        <h2 style="margin-bottom:20px">Request a Demo</h2>
+        <p style="color:var(--text2)">We'll show you the platform in a 20-minute call.</p>
+      </div>
+      <div style="background:var(--surface); padding:30px; border-radius:20px; border:1px solid var(--border2)">
+        <form id="demoForm" onsubmit="submitDemo(event)">
+          <input type="text" id="demoName" placeholder="Name" required>
+          <input type="text" id="demoCompany" placeholder="Company" required>
+          <input type="tel" id="demoPhone" placeholder="WhatsApp Number" required>
+          <input type="email" id="demoEmail" placeholder="Email" required>
+          <select id="demoSize">
+              <option value="">Team Size</option>
+              <option>1-50 agents</option>
+              <option>50-200 agents</option>
+              <option>200+ agents</option>
+          </select>
+          <textarea id="demoMessage" placeholder="Message"></textarea>
+          <button type="submit" id="demoSubmitBtn" class="btn-primary" style="width:100%; margin-top:20px; justify-content:center;">Send Request →</button>
+          <div id="demoSuccess" style="display:none; margin-top:15px; padding:15px; background:rgba(34,211,138,0.1); color:var(--success); border-radius:8px; border:1px solid var(--success); text-align:center;">
+              ✅ Lead Saved! Opening WhatsApp...
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+    <div class="container" style="text-align:center; padding:40px 0;">
+        <div class="nav-logo">QA<span>.</span>Hub</div>
+        <p style="font-size:12px; color:var(--text3); margin-top:10px;">© 2026 QA.Hub · All rights reserved</p>
+    </div>
+</footer>
 
 <script>
-// FAQ Toggle Function
+// 1. FAQ Toggle Fix
 function toggleFaq(el) {
   const body = el.querySelector('.faq-body');
-  const arrow = el.querySelector('.faq-arrow');
   const isOpen = body.style.display === 'block';
-
-  // Close all other FAQs
+  
+  // Close all bodies
   document.querySelectorAll('.faq-body').forEach(b => {
     b.style.display = 'none';
-    b.style.opacity = '0';
   });
-  document.querySelectorAll('.faq-arrow').forEach(a => a.textContent = '+');
 
-  // Open the clicked one
+  // Open clicked if was closed
   if (!isOpen) {
     body.style.display = 'block';
-    setTimeout(() => { body.style.opacity = '1'; }, 10);
-    arrow.textContent = '−';
   }
 }
 
-// Cursor Glow Effect
-const glow = document.getElementById("cursorGlow");
-document.addEventListener("mousemove", (e) => {
-    if(glow) {
-        glow.style.left = e.clientX + "px";
-        glow.style.top = e.clientY + "px";
-    }
-});
+// 2. Form Submission Fix
+async function submitDemo(e) {
+  e.preventDefault();
+  const name = document.getElementById('demoName').value;
+  const company = document.getElementById('demoCompany').value;
+  const phone = document.getElementById('demoPhone').value;
+  const email = document.getElementById('demoEmail').value;
+  const size = document.getElementById('demoSize').value;
+  const message = document.getElementById('demoMessage').value;
 
-// Reveal Animation on Scroll
-const observerOptions = { threshold: 0.1 };
+  const btn = document.getElementById('demoSubmitBtn');
+  btn.innerText = "Sending...";
+  btn.disabled = true;
+
+  try {
+    // Submit to Formspree
+    await fetch('https://formspree.io/f/xvzwqelr', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, company, phone, email, size, message })
+    });
+
+    document.getElementById('demoSuccess').style.display = 'block';
+    btn.style.display = 'none';
+
+    // WhatsApp logic
+    const waMsg = encodeURIComponent(`Hi, I want a demo of QA.Hub.\nName: ${name}\nCompany: ${company}`);
+    setTimeout(() => {
+        window.open(`https://wa.me/919711272421?text=${waMsg}`, '_blank');
+    }, 1000);
+
+  } catch (err) {
+    alert("Error sending. Please try WhatsApp directly.");
+    btn.disabled = false;
+    btn.innerText = "Send Request →";
+  }
+}
+
+// 3. Reveal Animation Fix
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
-      entry.target.style.transform = "translateY(0)";
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = 'translateY(0)';
     }
   });
-}, observerOptions);
+}, { threshold: 0.1 });
 
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Form Submission (Simulated)
-async function submitDemo(e) {
-    e.preventDefault();
-    alert("Request received! Opening WhatsApp...");
-}
+// 4. Cursor Glow
+const glow = document.getElementById("cursorGlow");
+document.addEventListener("mousemove", (e) => {
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+});
 </script>
 
 </body>
