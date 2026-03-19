@@ -142,7 +142,7 @@ section { position: relative; z-index: 1; }
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 140px 0 80px;
+  padding: 0;
   overflow: hidden;
 }
 #hero .container {
@@ -189,10 +189,10 @@ section { position: relative; z-index: 1; }
 
 h1 {
   font-family: var(--font-head);
-  font-size: clamp(36px, 5vw, 64px);
+  font-size: clamp(40px, 5.5vw, 72px);
   font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -2px;
+  line-height: 1.05;
+  letter-spacing: -2.5px;
   margin-bottom: 20px;
 }
 h1 em {
@@ -1093,10 +1093,24 @@ footer {
 <!-- ── HERO ── -->
 <section id="hero">
   <div style="max-width:1440px;margin:0 auto;padding:0 40px;position:relative;z-index:1;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;min-height:100vh;padding:140px 0 80px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:100px 0 60px;">
 
       <!-- LEFT: Text -->
       <div>
+        <!-- Trust badges -->
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2)">
+            <span style="color:var(--success);font-size:14px">✓</span> Firebase Secured
+          </div>
+          <div style="width:1px;height:14px;background:var(--border2)"></div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2)">
+            <span style="color:var(--success);font-size:14px">✓</span> 60-Day Free Trial
+          </div>
+          <div style="width:1px;height:14px;background:var(--border2)"></div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2)">
+            <span style="color:var(--success);font-size:14px">✓</span> No Credit Card
+          </div>
+        </div>
         <div class="hero-eyebrow">
           <div class="eyebrow-dot"></div>
           <span>QA Intelligence Platform</span>
@@ -1123,6 +1137,17 @@ footer {
           <div>
             <div class="hero-stat-num" style="color:var(--gold)">6 wks</div>
             <div class="hero-stat-label">To First Results</div>
+          </div>
+        </div>
+
+        <!-- Client logos strip -->
+        <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border2)">
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--text3);font-family:var(--font-head);font-weight:700;margin-bottom:14px">Trusted by QA teams at</div>
+          <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+            <span style="font-family:var(--font-head);font-size:13px;font-weight:800;color:var(--text3);opacity:0.6">OcubeServices</span>
+            <span style="font-family:var(--font-head);font-size:13px;font-weight:800;color:var(--text3);opacity:0.4">SalesPro BPO</span>
+            <span style="font-family:var(--font-head);font-size:13px;font-weight:800;color:var(--text3);opacity:0.4">ConnectFirst</span>
+            <span style="font-family:var(--font-head);font-size:13px;font-weight:800;color:var(--text3);opacity:0.4">LeadEdge</span>
           </div>
         </div>
       </div>
@@ -1224,6 +1249,22 @@ footer {
               <span style="margin-left:auto;font-family:var(--font-head);font-size:10px;font-weight:700;color:var(--danger);background:rgba(240,64,96,0.12);padding:3px 10px;border-radius:20px;white-space:nowrap;">Action Needed</span>
             </div>
 
+            <!-- Quick stat row -->
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:2px;">
+              <div style="background:rgba(34,211,138,0.06);border:1px solid rgba(34,211,138,0.15);border-radius:8px;padding:8px 10px;text-align:center;">
+                <div style="font-family:var(--font-head);font-size:16px;font-weight:800;color:var(--success)">12</div>
+                <div style="font-size:9px;color:var(--text3);font-family:var(--font-head);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-top:2px">Audits Today</div>
+              </div>
+              <div style="background:rgba(61,126,245,0.06);border:1px solid rgba(61,126,245,0.15);border-radius:8px;padding:8px 10px;text-align:center;">
+                <div style="font-family:var(--font-head);font-size:16px;font-weight:800;color:var(--accent)">8</div>
+                <div style="font-size:9px;color:var(--text3);font-family:var(--font-head);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-top:2px">Pass</div>
+              </div>
+              <div style="background:rgba(240,64,96,0.06);border:1px solid rgba(240,64,96,0.15);border-radius:8px;padding:8px 10px;text-align:center;">
+                <div style="font-family:var(--font-head);font-size:16px;font-weight:800;color:var(--danger)">4</div>
+                <div style="font-size:9px;color:var(--text3);font-family:var(--font-head);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-top:2px">Review</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -1233,15 +1274,38 @@ footer {
 </section>
 
 <!-- ── LOGOS ── -->
-<section id="logos">
+<section id="logos" style="padding:28px 0;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);background:rgba(8,13,24,0.6)">
   <div class="container">
-    <div class="logos-label">Trusted by QA teams at</div>
-    <div class="logos-row">
-      <div class="logo-item">OcubeServices</div>
-      <div class="logo-item">SalesPro BPO</div>
-      <div class="logo-item">ConnectFirst</div>
-      <div class="logo-item">LeadEdge</div>
-      <div class="logo-item">VoiceIQ</div>
+    <div style="display:flex;align-items:center;gap:48px;flex-wrap:wrap;justify-content:center">
+      <div style="display:flex;align-items:center;gap:10px;color:var(--text3)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.5px">Enterprise Security</span>
+      </div>
+      <div style="width:1px;height:20px;background:var(--border2)"></div>
+      <div style="display:flex;align-items:center;gap:10px;color:var(--text3)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.5px">Real-time Sync</span>
+      </div>
+      <div style="width:1px;height:20px;background:var(--border2)"></div>
+      <div style="display:flex;align-items:center;gap:10px;color:var(--text3)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.5px">Role-Based Access</span>
+      </div>
+      <div style="width:1px;height:20px;background:var(--border2)"></div>
+      <div style="display:flex;align-items:center;gap:10px;color:var(--text3)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.5px">Live Analytics</span>
+      </div>
+      <div style="width:1px;height:20px;background:var(--border2)"></div>
+      <div style="display:flex;align-items:center;gap:10px;color:var(--text3)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.5px">Excel Export</span>
+      </div>
+      <div style="width:1px;height:20px;background:var(--border2)"></div>
+      <div style="display:flex;align-items:center;gap:10px;color:var(--text3)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.5px">Multi-Team Support</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1270,6 +1334,43 @@ footer {
         <div class="pain-title">Problems surface too late</div>
         <div class="pain-text">By the time low scores show up in monthly reports, the damage is already done — missed conversions, unhappy clients.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BY THE NUMBERS ── -->
+<section style="padding:80px 0;background:var(--bg2);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border-radius:16px;overflow:hidden;border:1px solid var(--border2)">
+
+      <div style="background:var(--surface);padding:36px 28px;text-align:center;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent)"></div>
+        <div style="font-family:var(--font-head);font-size:52px;font-weight:900;color:var(--accent);letter-spacing:-2px;line-height:1">94%</div>
+        <div style="font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text);margin-top:8px">Average Pass Rate</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:6px;line-height:1.5">Achieved by teams using QA.Hub within 6 weeks</div>
+      </div>
+
+      <div style="background:var(--surface);padding:36px 28px;text-align:center;position:relative;overflow:hidden;border-left:1px solid var(--border2)">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--success),transparent)"></div>
+        <div style="font-family:var(--font-head);font-size:52px;font-weight:900;color:var(--success);letter-spacing:-2px;line-height:1">+18%</div>
+        <div style="font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text);margin-top:8px">Score Improvement</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:6px;line-height:1.5">Average QA score lift in the first 30 days</div>
+      </div>
+
+      <div style="background:var(--surface);padding:36px 28px;text-align:center;position:relative;overflow:hidden;border-left:1px solid var(--border2)">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent2),transparent)"></div>
+        <div style="font-family:var(--font-head);font-size:52px;font-weight:900;color:var(--accent2);letter-spacing:-2px;line-height:1">60%</div>
+        <div style="font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text);margin-top:8px">Fatal Failures Drop</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:6px;line-height:1.5">Reduction in critical parameter failures</div>
+      </div>
+
+      <div style="background:var(--surface);padding:36px 28px;text-align:center;position:relative;overflow:hidden;border-left:1px solid var(--border2)">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent)"></div>
+        <div style="font-family:var(--font-head);font-size:52px;font-weight:900;color:var(--gold);letter-spacing:-2px;line-height:1">30m</div>
+        <div style="font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text);margin-top:8px">Setup Time</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:6px;line-height:1.5">From signup to first audit, no IT team needed</div>
+      </div>
+
     </div>
   </div>
 </section>
