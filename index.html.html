@@ -36,15 +36,8 @@ body {
   font-size: 15px;
   line-height: 1.6;
   overflow-x: hidden;
-
-  opacity:0;
-  animation:pageFade 0.8s ease forwards;
 }
 
-@keyframes pageFade{
-from{opacity:0;}
-to{opacity:1;}
-}
 /* ── NOISE OVERLAY ── */
 body::before {
   content: '';
@@ -253,12 +246,7 @@ h1 em {
   background: rgba(255,255,255,0);
   transition: background 0.15s;
 }
-.btn-primary:hover{
-backdrop-filter: blur(20px);
-background:#5590f7;
-box-shadow:0 0 40px rgba(61,126,245,0.6);
-transform:translateY(-3px) scale(1.02);
-}
+.btn-primary:hover { background: #5590f7; box-shadow: 0 0 40px rgba(61,126,245,0.5); transform: translateY(-2px); }
 .btn-primary:active { transform: translateY(0) scale(0.97); box-shadow: 0 0 16px rgba(61,126,245,0.3); }
 
 .btn-ghost:active { transform: scale(0.97); }
@@ -1051,19 +1039,6 @@ footer {
   opacity: 1;
   transform: none;
 }
-/* Cursor Glow */
-#cursorGlow{
-position:fixed;
-width:220px;
-height:220px;
-background:radial-gradient(circle,rgba(61,126,245,0.25),transparent 70%);
-pointer-events:none;
-border-radius:50%;
-mix-blend-mode:screen;
-transform:translate(-50%,-50%);
-z-index:0;
-opacity:0.6;
-}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
@@ -1125,7 +1100,7 @@ opacity:0.6;
         <p class="hero-sub">Most BPOs find out about quality problems from client complaints. QA.Hub tells you before that happens — with real scores, real data, and real coaching ROI on every single call.</p>
         <div class="hero-actions">
           <a href="https://wa.me/919711272421?text=Hi%20Abhishek%2C%20I%27m%20interested%20in%20a%20free%20trial%20of%20QA.Hub%20for%20my%20team." target="_blank" class="btn-primary">Start 60-Day Free Trial →</a>
-          <a href="https://app.qahub.online" target="_blank" class="btn-ghost" style="border-color:rgba(34,211,138,0.3);color:var(--success)">Launch QA Hub →</a>
+          <a href="https://app.qahub.online" target="_blank" class="btn-ghost" style="border-color:rgba(34,211,138,0.3);color:var(--success)">Open App →</a>
         </div>
         <div class="hero-stats">
           <div>
@@ -1713,7 +1688,7 @@ opacity:0.6;
 
     <div style="max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:2px;border-radius:16px;overflow:hidden;border:1px solid var(--border2)">
 
-      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer" style="background:var(--surface);padding:24px 28px;cursor:pointer;transition:background 0.2s">
+      <div class="faq-item" onclick="toggleFaq(this)" style="background:var(--surface);padding:24px 28px;cursor:pointer;transition:background 0.2s">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
           <div style="font-family:var(--font-head);font-weight:700;font-size:15px">How long does setup take?</div>
           <div class="faq-arrow" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(61,126,245,0.25);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent);flex-shrink:0;transition:all 0.2s;font-weight:300;line-height:1">+</div>
@@ -1721,7 +1696,7 @@ opacity:0.6;
         <div class="faq-body" style="display:none;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75;padding-top:2px">About 30 minutes. You add your agents (bulk Excel upload or one by one), set up your process, and you're auditing. No IT team, no integrations, no training sessions needed.</div>
       </div>
 
-      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
+      <div class="faq-item" onclick="toggleFaq(this)" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
           <div style="font-family:var(--font-head);font-weight:700;font-size:15px">Can I use my own scoring parameters?</div>
           <div class="faq-arrow" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(61,126,245,0.25);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent);flex-shrink:0;transition:all 0.2s;font-weight:300;line-height:1">+</div>
@@ -1729,7 +1704,7 @@ opacity:0.6;
         <div class="faq-body" style="display:none;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75;padding-top:2px">Yes — on the Enterprise plan, scoring parameters are fully customizable per client. On Starter and Growth, the current parameters cover the most common BPO QA frameworks and work for most teams out of the box.</div>
       </div>
 
-      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
+      <div class="faq-item" onclick="toggleFaq(this)" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
           <div style="font-family:var(--font-head);font-weight:700;font-size:15px">Where is my data stored? Is it secure?</div>
           <div class="faq-arrow" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(61,126,245,0.25);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent);flex-shrink:0;transition:all 0.2s;font-weight:300;line-height:1">+</div>
@@ -1737,7 +1712,7 @@ opacity:0.6;
         <div class="faq-body" style="display:none;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75;padding-top:2px">All data is stored on Google Firebase (Asia Southeast region), with role-based authentication. Only users you explicitly assign can access your process data. Your data is completely isolated from other clients.</div>
       </div>
 
-      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
+      <div class="faq-item" onclick="toggleFaq(this)" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
           <div style="font-family:var(--font-head);font-weight:700;font-size:15px">What's included in the 60-day free trial?</div>
           <div class="faq-arrow" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(61,126,245,0.25);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent);flex-shrink:0;transition:all 0.2s;font-weight:300;line-height:1">+</div>
@@ -1745,7 +1720,7 @@ opacity:0.6;
         <div class="faq-body" style="display:none;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75;padding-top:2px">Full access to everything — all analytics, all features, unlimited audits. No credit card needed. We give you 60 days because we know QA results take time to show up in the data. You'll see the difference before you pay anything.</div>
       </div>
 
-      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
+      <div class="faq-item" onclick="toggleFaq(this)" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
           <div style="font-family:var(--font-head);font-weight:700;font-size:15px">How many agents and auditors can I add?</div>
           <div class="faq-arrow" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(61,126,245,0.25);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent);flex-shrink:0;transition:all 0.2s;font-weight:300;line-height:1">+</div>
@@ -1753,7 +1728,7 @@ opacity:0.6;
         <div class="faq-body" style="display:none;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75;padding-top:2px">Starter supports up to 50 agents and 5 QA auditors. Growth supports unlimited agents and 15 auditors. Enterprise has no limits on either.</div>
       </div>
 
-      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
+      <div class="faq-item" onclick="toggleFaq(this)" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
           <div style="font-family:var(--font-head);font-weight:700;font-size:15px">Do my TLs and agents get their own login?</div>
           <div class="faq-arrow" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(61,126,245,0.25);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent);flex-shrink:0;transition:all 0.2s;font-weight:300;line-height:1">+</div>
@@ -1761,7 +1736,7 @@ opacity:0.6;
         <div class="faq-body" style="display:none;margin-top:14px;font-size:13.5px;color:var(--text2);line-height:1.75;padding-top:2px">Yes. Role-based access means admins, QA auditors, and team leaders each see a different version of the platform appropriate to their role. TLs see their team's data. Agents can view their own scores. Admins see everything.</div>
       </div>
 
-      <div class="faq-item" onclick="toggleFaq(this)" style="cursor:pointer" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
+      <div class="faq-item" onclick="toggleFaq(this)" style="background:var(--surface);padding:24px 28px;cursor:pointer;border-top:1px solid var(--border2);transition:background 0.2s">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
           <div style="font-family:var(--font-head);font-weight:700;font-size:15px">Can I export data to share with my client?</div>
           <div class="faq-arrow" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(61,126,245,0.25);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent);flex-shrink:0;transition:all 0.2s;font-weight:300;line-height:1">+</div>
@@ -1919,30 +1894,26 @@ opacity:0.6;
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
 function toggleFaq(el) {
   const body = el.querySelector('.faq-body');
   const arrow = el.querySelector('.faq-arrow');
   const isOpen = body.style.display === 'block';
-  // Close all first
-  document.querySelectorAll('.faq-body').forEach(b => {
-    b.style.display = 'none';
-    b.style.opacity = '0';
+
+  // Close all
+  document.querySelectorAll('.faq-body').forEach(b => b.style.display = 'none');
+  document.querySelectorAll('.faq-arrow').forEach(a => a.textContent = '+');
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.style.background = 'var(--surface)';
+    i.style.borderLeft = 'none';
   });
-  document.querySelectorAll('.faq-arrow').forEach(a => {
-    a.textContent = '+';
-    a.style.background = 'transparent';
-    a.style.color = 'var(--accent)';
-  });
-  document.querySelectorAll('.faq-item').forEach(i => i.style.background = '');
-  // Open clicked if it was closed
+
+  // If it was closed, open it
   if (!isOpen) {
     body.style.display = 'block';
-    setTimeout(() => { body.style.opacity = '1'; }, 10);
     arrow.textContent = '−';
-    arrow.style.background = 'rgba(61,126,245,0.15)';
-    arrow.style.color = 'var(--accent)';
-    el.style.background = 'rgba(61,126,245,0.04)';
+    el.style.background = 'rgba(61,126,245,0.05)';
+    el.style.borderLeft = '3px solid var(--accent)';
   }
 }
 
@@ -1965,18 +1936,28 @@ async function submitDemo(e) {
   submitBtn.textContent = 'Sending...';
   submitBtn.disabled = true;
 
-  // 1 — Save to Google Sheets via Formspree
+  // 1 — Submit to Google Forms (saves to Google Sheet automatically)
+  // Using no-cors fetch via hidden iframe to avoid page redirect
   try {
-    await fetch('https://formspree.io/f/xvzwqelr', {
+    const formData = new FormData();
+    formData.append('entry.1959625425', name);      // Your Name
+    formData.append('entry.1568440508', company);  // Company Name
+    formData.append('entry.589278785', phone);     // WhatsApp Number
+    formData.append('entry.65622332', email);      // Email Address
+    formData.append('entry.1149606066', size);     // Team Size
+    formData.append('entry.1221077026', message);  // Message
+
+    // Submit via no-cors (Google Forms doesn't allow CORS but still saves the data)
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLScwkgycQWDR7nFP4fHgxTmznlRaaXj1x2VC7b1ibQUNaNWqzg/formResponse', {
       method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, company, phone, email, teamSize: size, message })
+      mode: 'no-cors',
+      body: formData
     });
   } catch(err) {
-    console.warn('Formspree error:', err);
+    console.warn('Google Forms error:', err);
   }
 
-  // 2 — Show success
+  // 2 — Show success immediately (no-cors means we can't wait for response)
   document.getElementById('demoSuccess').style.display = 'block';
   submitBtn.style.display = 'none';
 
@@ -1999,7 +1980,6 @@ async function submitDemo(e) {
 // No scroll animations — all content visible immediately
 
 // Nav scroll effect + active state
-
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');
   nav.style.background = window.scrollY > 40
@@ -2026,30 +2006,3 @@ window.addEventListener('scroll', () => {
     }
   });
 });
-const glow = document.getElementById("cursorGlow");
-
-document.addEventListener("mousemove",(e)=>{
-glow.style.left = e.clientX + "px";
-glow.style.top = e.clientY + "px";
-});
-
-// Section Fade Animation
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.style.opacity = 1;
-      entry.target.style.transform = "translateY(0)";
-    }
-  });
-});
-
-document.querySelectorAll(".reveal").forEach(el=>{
-  el.style.opacity = 0;
-  el.style.transform = "translateY(40px)";
-  el.style.transition = "all 0.8s ease";
-  observer.observe(el);
-});
-</script>
-<div id="cursorGlow"></div>
-</body>
-</html>
