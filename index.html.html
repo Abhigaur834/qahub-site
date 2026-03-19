@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="robots" content="noarchive">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QA.Hub — Performance Intelligence for BPOs</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -1790,7 +1791,7 @@ footer {
             <div style="width:48px;height:48px;border-radius:12px;background:rgba(61,126,245,0.1);border:1px solid rgba(61,126,245,0.2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">✉️</div>
             <div>
               <div style="font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2);margin-bottom:4px">Email</div>
-              <span style="font-family:var(--font-head);font-size:17px;font-weight:700;color:var(--text)"><a href="https://wa.me/919711272421?text=Hi%20Abhishek%2C%20I%27m%20interested%20in%20a%20free%20trial%20of%20QA.Hub%20for%20my%20team." target="_blank" class="__cf_email__" data-cfemail="3d5a5c484f5c5f5554050e097d5a505c5451135e5250">[email&#160;protected]</a></span>
+              <span style="font-family:var(--font-head);font-size:17px;font-weight:700;color:var(--text)"><span data-email="1">gaurabhi834<!-- -->@<!-- -->gmail.com</span></span>
             </div>
           </div>
 
@@ -1931,25 +1932,22 @@ window.submitDemo = async function(e) {
   submitBtn.textContent = 'Sending...';
   submitBtn.disabled = true;
 
-  // 1 — Submit to Google Forms (saves to Google Sheet automatically)
-  // Using no-cors fetch via hidden iframe to avoid page redirect
+  // 1 — Save to Formspree (stores all submissions in dashboard)
   try {
-    const formData = new FormData();
-    formData.append('entry.1959625425', name);      // Your Name
-    formData.append('entry.1568440508', company);  // Company Name
-    formData.append('entry.589278785', phone);     // WhatsApp Number
-    formData.append('entry.65622332', email);      // Email Address
-    formData.append('entry.1149606066', size);     // Team Size
-    formData.append('entry.1221077026', message);  // Message
-
-    // Submit via no-cors (Google Forms doesn't allow CORS but still saves the data)
-    fetch('https://docs.google.com/forms/d/e/1FAIpQLScwkgycQWDR7nFP4fHgxTmznlRaaXj1x2VC7b1ibQUNaNWqzg/formResponse', {
+    await fetch('https://formspree.io/f/xvzwqelr', {
       method: 'POST',
-      mode: 'no-cors',
-      body: formData
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        company: company,
+        phone: phone,
+        email: email,
+        teamSize: size,
+        message: message
+      })
     });
   } catch(err) {
-    console.warn('Google Forms error:', err);
+    console.warn('Formspree error:', err);
   }
 
   // 2 — Show success immediately (no-cors means we can't wait for response)
